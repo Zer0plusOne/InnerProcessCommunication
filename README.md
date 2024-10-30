@@ -23,13 +23,13 @@ El programa crea un proceso padre y varios procesos hijos. Cada proceso hijo rea
 Para compilar el programa, utiliza el siguiente comando en la terminal:
 
 ```bash
-gcc -o ipc_example ipc_example.c
+gcc main.c -o main
 ```
 
 Para ejecutar el programa:
 
 ```bash
-./ipc_example
+./main
 ```
 
 ## Salida Esperada
