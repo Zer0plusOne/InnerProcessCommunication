@@ -1,57 +1,45 @@
+# Inter-Process Communication Example
 
-# Question_Game
+Este repositorio contiene un ejemplo de un programa en C que utiliza comunicación entre procesos a través de pipes. El programa está diseñado para crear múltiples procesos que intercambian datos de forma sincronizada.
 
-## Description
+## Descripción del Programa
 
-The `Question_Game` is a simple console-based quiz game implemented in C++. The game presents a series of questions with multiple-choice answers. Players are prompted to answer the questions, and their scores are calculated based on their responses.
+El programa crea un proceso padre y varios procesos hijos. Cada proceso hijo realiza operaciones sobre los números enviados desde el proceso padre, usando pipes para la comunicación. En particular, el proceso padre multiplica un número por 2, y el proceso hijo suma 10 al resultado recibido.
 
-## Features
+### Funciones Clave
 
-- Ten questions with multiple-choice answers.
-- Players input their answers to each question.
-- The game calculates and displays the final score at the end.
+- **enviarNumero**: Envía un número a través de un pipe.
+- **recibirNumero**: Recibe un número desde un pipe.
+- **procesoPadre**: Multiplica el número recibido por 2 y lo envía al proceso hijo.
+- **procesoHijo**: Suma 10 al número recibido y lo envía de vuelta al proceso padre.
 
-## Installation
+## Requisitos
 
-1. Ensure you have a C++ compiler installed on your machine (e.g., g++, clang).
-2. Clone the repository:
+- Un entorno compatible con C
+- Acceso a las funciones de sistema para la creación de procesos y pipes (`<unistd.h>`, `<sys/wait.h>`)
 
-   ```bash
-   git clone https://github.com/yourusername/Question_Game.git
-   ```
+## Cómo Compilar y Ejecutar
 
-3. Navigate to the project directory:
+Para compilar el programa, utiliza el siguiente comando en la terminal:
 
-   ```bash
-   cd Question_Game
-   ```
+```bash
+gcc -o ipc_example ipc_example.c
+```
 
-4. Compile the code:
+Para ejecutar el programa:
 
-   ```bash
-   g++ -o question_game main.cpp
-   ```
+```bash
+./ipc_example
+```
 
-5. Run the game:
+## Salida Esperada
 
-   ```bash
-   ./question_game
-   ```
+El programa imprimirá en la consola los números recibidos y enviados por cada proceso, mostrando el flujo de comunicación entre el proceso padre y los procesos hijos. Al final, se mostrará un mensaje indicando que el proceso ha finalizado.
 
-## Usage
+## Contribuciones
 
-- Follow the on-screen instructions to answer each question.
-- Input your answer by typing the corresponding letter (a, b, c, or d).
-- Your final score will be displayed after answering all questions.
+Las contribuciones son bienvenidas. Siéntete libre de hacer un fork del repositorio y enviar pull requests para mejoras o correcciones.
 
-## Contributing
+## Licencia
 
-Feel free to fork the repository and submit pull requests. Any contributions to improve the game or its features are welcome!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- Thank you to all contributors for their support and improvements to this project.
+Este proyecto está bajo la Licencia MIT - consulta el archivo [LICENSE](LICENSE) para más detalles.
